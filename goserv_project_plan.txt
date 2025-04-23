@@ -1,0 +1,67 @@
+
+Project Name: GoServ – A Modular HTTP Server in Go
+
+Goal:
+Implement a feature-rich HTTP server in Go from scratch (no frameworks like Gin/Fiber) that can:
+- Serve static files
+- Handle basic routing
+- Parse .conf-style configuration files
+- Log activity
+- Support concurrency (goroutines)
+- Mimic a microservice-ready structure
+
+Core Features:
+1. Configuration Parsing
+   - Custom .goserv.conf parser (INI or JSON-style)
+   - Load ports, root folders, error pages, logging options
+
+2. Basic HTTP Server
+   - Implement HTTP/1.1 using net/http and net packages
+   - Support GET, POST
+   - Static file serving
+   - Basic routing (/api/, /about, etc.)
+
+3. Routing System (no external router libs)
+   - Define routing tree or regex-based matching
+   - Method handler registration: GET /path → handler func
+
+4. MIME Type & File Extension Handling
+   - Return correct Content-Type headers
+   - Prevent directory traversal attacks
+
+5. Concurrency
+   - Use goroutines and channels for:
+     - Multiple client connections
+     - Logging
+     - Optional: config reloading
+
+6. Error Handling & Logging
+   - Return proper HTTP error codes
+   - Log requests (file/stdout)
+   - Optional: middleware-style logging
+
+Bonus / Extensions:
+- Reverse proxy mode
+- Rate limiter (token bucket)
+- TLS with crypto/tls
+- Basic templating (html/template)
+- Dockerfile + Makefile
+
+Tech Stack:
+- Go (Golang)
+- Libs: net/http, bufio, os, log, encoding/json, crypto/tls
+- Build: go build, go test, Docker
+- Docs: Markdown, optional Swagger
+
+Milestones:
+Week 1: Parse config and base HTTP server
+Week 2: Static file serving + routing
+Week 3: Logging, errors, MIME detection
+Week 4: Goroutine concurrency, rate-limiting
+Week 5: Dockerize + README
+Week 6: Bonus features, open-source polish
+
+Why:
+- Demonstrates backend fundamentals for remote jobs
+- Aligns with Go ecosystem and microservices
+- Base for SaaS, tools, APIs
